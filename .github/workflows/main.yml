@@ -1,0 +1,31 @@
+# name 可以自定義
+name: Deploy GitHub Pages
+
+# 觸發條件：在 push 到 main/master 分支後，新的 Github 項目 應該都是 main，而之前的項目一般都是 master
+on:
+  push:
+    branches: ["master", "main"]
+
+# 任務
+jobs:
+  build-and-deploy:
+    # 服務器環境：最新版 Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取代碼
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      # 生成靜態文件
+      - name: Build
+        run: npm install && npm run build
+
+      # 部署到 GitHub Pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 也就是我們生成的 secret
+          BRANCH: gh-pages # 部署到 gh-pages 分支
+          FOLDER: ./dist # 生成的靜態文件存放的地方
