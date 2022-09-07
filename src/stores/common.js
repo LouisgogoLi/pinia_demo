@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { defineStore, acceptHMRUpdate } from "pinia";
 
 export const useCommonStore = defineStore("common", () => {
@@ -7,7 +7,10 @@ export const useCommonStore = defineStore("common", () => {
     isOpen.value = !isOpen.value;
   }
 
-  return { isOpen, handSetOpen };
+  const count = ref(1);
+  const doubleCount = computed(() => count.value * 2);
+
+  return { isOpen, handSetOpen, count, doubleCount };
 });
 
 if (import.meta.hot) {

@@ -1,4 +1,9 @@
 <template>
+  <div style="margin-bottom: 50px">
+    <h2>pinia computed: {{ common.doubleCount }}</h2>
+    <button @click="common.count++">count++</button>
+    <button @click="common.count--">count--</button>
+  </div>
   <h1>{{ auth.token }}</h1>
   <MenuBtn />
   <div class="content" v-if="common.isOpen">
