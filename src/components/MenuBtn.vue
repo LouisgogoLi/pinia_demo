@@ -1,20 +1,13 @@
 <template>
-  <button @click="handClickMenu">測試vuex</button>
+  <button @click="handClickMenu()">測試pinia</button>
 </template>
 
-<script>
-export default {
-  name: "MenuBtn",
-};
-</script>
-
 <script setup>
-import { useStore } from "vuex";
-
-const store = useStore();
+import { useCommonStore } from "@/stores/common";
+const common = useCommonStore();
 
 const handClickMenu = () => {
-  store.dispatch("handSetOpenState");
+  common.handSetOpen();
 };
 </script>
 

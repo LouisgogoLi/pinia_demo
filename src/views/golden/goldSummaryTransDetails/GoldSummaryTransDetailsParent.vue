@@ -10,19 +10,6 @@
   </div>
 </template>
 
-<script>
-import storeIndex from "@/store/index.js";
-import goldSummaryTransDetails from "@/store/golden/goldSummaryTransDetails";
-storeIndex.registerModule(
-  ["golden", "goldSummaryTransDetails"],
-  goldSummaryTransDetails
-);
-
-export default {
-  name: "GoldSummaryTransDetailsParent",
-};
-</script>
-
 <script setup></script>
 
 <style lang="scss">

@@ -1,28 +1,13 @@
 <template>
-  <h2>{{ nSummary }}</h2>
-  <button @click="fnAddNum">增加數字</button>
+  <h2>{{ goldenGoldSummaryTransDetails.summary }}</h2>
+  <button @click="goldenGoldSummaryTransDetails.addSummary()">增加數字</button>
+  <button @click="goldenGoldSummaryTransDetails.minusSummary()">
+    減少數字
+  </button>
 </template>
 
-<script>
-export default {
-  name: "GoldTransDetails",
-};
-</script>
-
 <script setup>
-import { computed } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
-
-const nSummary = computed(() => {
-  return store.getters["golden/goldSummaryTransDetails/getSummary"];
-});
-
-const fnAddNum = () => {
-  let nSummaryNum = nSummary.value;
-  nSummaryNum++;
-  store.dispatch("golden/goldSummaryTransDetails/handSetSummary", nSummaryNum);
-};
+import { useGoldenGoldSummaryTransDetailsStore } from "@/stores/golden-goldSummaryTransDetails";
+const goldenGoldSummaryTransDetails = useGoldenGoldSummaryTransDetailsStore();
 </script>
 <style lang="scss"></style>

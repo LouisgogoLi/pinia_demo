@@ -2,45 +2,36 @@
   <nav>
     <router-link
       :to="{ name: 'TestView' }"
-      :class="{ active: nRouteIndex === 0 }"
+      :class="{ active: routeIndex === 0 }"
       >TestView</router-link
     >
     |
     <router-link
       :to="{ name: 'goldsummary' }"
-      :class="{ active: nRouteIndex === 1 }"
+      :class="{ active: routeIndex === 1 }"
       >黃金存摺帳戶內容查詢</router-link
     >
   </nav>
   <router-view />
 </template>
 
-<script>
-export default {
-  name: "App",
-};
-</script>
-
 <script setup>
 import { useRoute } from "vue-router";
-import { ref, watch } from "vue";
+import { ref, watchEffect } from "vue";
 
-let aRouterList = ["", "golden"];
+let routerList = ["", "golden"];
 
 const route = useRoute();
-const nRouteIndex = ref(0);
-watch(
-  () => route.path,
-  () => {
-    const sNowMainPath = route.path.split("/")[1];
+const routeIndex = ref(0);
+watchEffect(() => {
+  const nowMainPath = route.path.split("/")[1];
 
-    aRouterList.forEach((item, index) => {
-      if (item === sNowMainPath) {
-        nRouteIndex.value = index;
-      }
-    });
-  }
-);
+  routerList.forEach((item, index) => {
+    if (item === nowMainPath) {
+      routeIndex.value = index;
+    }
+  });
+});
 </script>
 
 <style lang="scss">

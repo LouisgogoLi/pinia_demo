@@ -1,35 +1,31 @@
 <template>
+  <h1>{{ auth.token }}</h1>
   <MenuBtn />
-  <div class="content" v-if="bIsOpen">
+  <div class="content" v-if="common.isOpen">
     <img id="img" alt="Vue logo" src="@/assets/images/logo.png" />
   </div>
-  <h1>{{ sToken }}</h1>
 </template>
-
-<script>
-export default {
-  name: "TestView",
-};
-</script>
 
 <script setup>
 import MenuBtn from "@/components/MenuBtn.vue";
 
-import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { watch } from "vue";
 
-const store = useStore();
+import { useCommonStore } from "@/stores/common";
+import { useAuthStore } from "@/stores/auth";
+const common = useCommonStore();
+const auth = useAuthStore();
 
-const bIsOpen = computed(() => {
-  return store.getters.getIsOpen;
-});
-
-const sToken = computed(() => {
-  return store.getters["Auth/getToken"];
-});
-
-onMounted(() => {
-  store.dispatch("Auth/handSetToken", "aaaaaaa");
-});
+watch(
+  () => common.isOpen,
+  () => {
+    if (common.isOpen) {
+      auth.token = "請點button隱藏";
+    } else {
+      auth.token = "請點button顯示";
+    }
+  }
+);
 </script>
+
 <style lang=""></style>
