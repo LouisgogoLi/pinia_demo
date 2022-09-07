@@ -1,1 +1,0 @@
-import{u as s,a as r,o as n,c as o,g as e,t as u,e as c,F as l}from"./index.c2ad1b32.js";const m=e("h1",null,"\u6E2C\u8A66",-1),_={name:"GoldSummary"},S=Object.assign(_,{setup(d){const t=s(),a=r(()=>t.getters["golden/goldSummaryTransDetails/getSummary"]);return(g,p)=>(n(),o(l,null,[m,e("h2",null,u(c(a)),1)],64))}});export{S as default};
