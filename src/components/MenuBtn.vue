@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { useCommonStore } from "@/stores/common";
+import { useCommonStore } from '@/stores/common';
 const common = useCommonStore();
 
 const handClickMenu = () => {

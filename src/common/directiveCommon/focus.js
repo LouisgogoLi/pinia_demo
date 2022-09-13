@@ -1,5 +1,5 @@
 export function directiveFocus(app) {
-  app.directive("focus", {
+  app.directive('focus', {
     mounted(el) {
       el.focus();
     },

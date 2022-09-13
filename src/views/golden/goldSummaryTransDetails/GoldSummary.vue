@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import { useGoldenGoldSummaryTransDetailsStore } from "@/stores/golden-goldSummaryTransDetails";
+import { useGoldenGoldSummaryTransDetailsStore } from '@/stores/golden-goldSummaryTransDetails';
 const goldenGoldSummaryTransDetails = useGoldenGoldSummaryTransDetailsStore();
 </script>
 

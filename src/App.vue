@@ -1,28 +1,22 @@
 <template>
   <nav>
-    <RouterLink :to="{ name: 'TestView' }" :class="{ active: routeIndex === 0 }"
-      >TestView</RouterLink
-    >
+    <RouterLink :to="{ name: 'TestView' }" :class="{ active: routeIndex === 0 }">TestView</RouterLink>
     |
-    <RouterLink
-      :to="{ name: 'goldsummary' }"
-      :class="{ active: routeIndex === 1 }"
-      >黃金存摺帳戶內容查詢</RouterLink
-    >
+    <RouterLink :to="{ name: 'goldsummary' }" :class="{ active: routeIndex === 1 }">黃金存摺帳戶內容查詢</RouterLink>
   </nav>
   <RouterView />
 </template>
 
 <script setup>
-import { useRoute, RouterLink, RouterView } from "vue-router";
-import { ref, watchEffect } from "vue";
+import { useRoute, RouterLink, RouterView } from 'vue-router';
+import { ref, watchEffect } from 'vue';
 
-let routerList = ["", "golden"];
+let routerList = ['', 'golden'];
 
 const route = useRoute();
 const routeIndex = ref(0);
 watchEffect(() => {
-  const nowMainPath = route.path.split("/")[1];
+  const nowMainPath = route.path.split('/')[1];
 
   routerList.forEach((item, index) => {
     if (item === nowMainPath) {

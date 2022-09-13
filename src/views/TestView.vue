@@ -12,12 +12,12 @@
 </template>
 
 <script setup>
-import MenuBtn from "@/components/MenuBtn.vue";
+import MenuBtn from '@/components/MenuBtn.vue';
 
-import { watch } from "vue";
+import { watch } from 'vue';
 
-import { useCommonStore } from "@/stores/common";
-import { useAuthStore } from "@/stores/auth";
+import { useCommonStore } from '@/stores/common';
+import { useAuthStore } from '@/stores/auth';
 const common = useCommonStore();
 const auth = useAuthStore();
 
@@ -25,9 +25,9 @@ watch(
   () => common.isOpen,
   () => {
     if (common.isOpen) {
-      auth.token = "請點button隱藏";
+      auth.token = '請點button隱藏';
     } else {
-      auth.token = "請點button顯示";
+      auth.token = '請點button顯示';
     }
   }
 );

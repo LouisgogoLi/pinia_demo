@@ -1,7 +1,7 @@
-import { ref, computed } from "vue";
-import { defineStore, acceptHMRUpdate } from "pinia";
+import { ref, computed } from 'vue';
+import { defineStore, acceptHMRUpdate } from 'pinia';
 
-export const useCommonStore = defineStore("common", () => {
+export const useCommonStore = defineStore('common', () => {
   const isOpen = ref(false);
   function handSetOpen() {
     isOpen.value = !isOpen.value;
