@@ -1,22 +1,20 @@
 <template>
   <nav>
-    <router-link
-      :to="{ name: 'TestView' }"
-      :class="{ active: routeIndex === 0 }"
-      >TestView</router-link
+    <RouterLink :to="{ name: 'TestView' }" :class="{ active: routeIndex === 0 }"
+      >TestView</RouterLink
     >
     |
-    <router-link
+    <RouterLink
       :to="{ name: 'goldsummary' }"
       :class="{ active: routeIndex === 1 }"
-      >黃金存摺帳戶內容查詢</router-link
+      >黃金存摺帳戶內容查詢</RouterLink
     >
   </nav>
-  <router-view />
+  <RouterView />
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
+import { useRoute, RouterLink, RouterView } from "vue-router";
 import { ref, watchEffect } from "vue";
 
 let routerList = ["", "golden"];

@@ -7,16 +7,6 @@ function loadLocaleMessages() {
     modules[moduleName] = locales[path]?.default;
     return modules;
   }, {});
-
-  //ts
-  //   const modules = Object.keys(modulesFiles).reduce(
-  //   (modules: { [key: string]: any }, path: string) => {
-  //     const moduleName = path.replace(/^\.\/modules\/(.*)\.\w+$/, '$1')
-  //     modules[moduleName] = modulesFiles[path]?.default
-  //     return modules
-  //   },
-  //   {}
-  // )
   return modules;
 }
 
