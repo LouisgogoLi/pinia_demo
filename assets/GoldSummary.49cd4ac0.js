@@ -1,0 +1,1 @@
+import{u as s}from"./golden-goldSummaryTransDetails.fe4ea81a.js";import{o,a as r,b as a,t,u as n,F as l}from"./index.a2f316fc.js";const m=a("h1",null,"\u6E2C\u8A66",-1),p={__name:"GoldSummary",setup(u){const e=s();return(c,_)=>(o(),r(l,null,[m,a("h2",null,t(n(e).summary),1)],64))}};export{p as default};
